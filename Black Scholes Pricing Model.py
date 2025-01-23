@@ -1,8 +1,6 @@
 import math
 import numpy
-import matplotlib 
 from scipy.stats import norm
-import tkinter
 
 # Inputs:
 stock_price = float(input("Current stock price: "))
@@ -13,14 +11,14 @@ volatility = float(input("Volatility(%): ")) / 100
 
 #Checking Invalid Inputs:
 
-if stock_price < 0:
-    raise ValueError("Stock price must be greater than 0")
-elif strike_price < 0:
-    raise ValueError("Strike price must be greater than 0")
-elif time_maturity < 0:
-    raise ValueError("Time to maturity must be greater than 0")
-elif volatility < 0:
-    raise ValueError("Volatility must be greater than 0")
+if stock_price <= 0:
+    raise ValueError("Stock price must be positive")
+elif strike_price <= 0:
+    raise ValueError("Strike price must be positive")
+elif time_maturity <= 0:
+    raise ValueError("Time to maturity must be positive")
+elif volatility <= 0:
+    raise ValueError("Volatility must be positive")
 
 
 # Black-Scholes Formulas:
@@ -42,7 +40,7 @@ def call_option_price(stock_price, strike_price, interest_rate, time_maturity,\
     call_price = (stock_price * c_norm_cdf_d1) - (strike_price * (math.e**( -1\
                     * interest_rate * time_maturity)) * c_norm_cdf_d2)
     
-    return call_price
+    return round(call_price, 2)
 
 #Put Option:
 def put_option_price(stock_price, strike_price, interest_rate, time_maturity, \
@@ -51,7 +49,7 @@ def put_option_price(stock_price, strike_price, interest_rate, time_maturity, \
     put_price = (strike_price * (math.e**(-1 * interest_rate * time_maturity))\
                  * p_norm_cdf_d2) - (stock_price * p_norm_cdf_d1)
     
-    return put_price
+    return round(put_price, 2)
 
-
-
+    
+    
