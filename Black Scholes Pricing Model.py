@@ -78,7 +78,7 @@ def calculate_option_prices():
 #Setting up the main window
 root = tk.Tk()
 root.title("Black Scholes Pricing Model")
-root.geometry('500x500')
+root.geometry('450x450')
 
 #Labels and Entries for Inputs
 stock_price_label = tk.Label(root, text="Stock Price: ")
