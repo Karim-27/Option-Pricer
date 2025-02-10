@@ -11,7 +11,7 @@ welcome_label = tk.Label(root, text="Welcome to the Options Calculator", font=("
 welcome_label.pack(pady=20)
 
 # Button to Open Black-Scholes Window
-black_scholes_button = tk.Button(root, text="Black-Scholes Calculator", font=("Arial", 12), command=lambda: open_black_scholes)
+black_scholes_button = tk.Button(root, text="Black-Scholes Calculator", font=("Arial", 12), command=open_black_scholes)
 black_scholes_button.pack(pady=10)
 
 root.mainloop()
