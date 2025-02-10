@@ -1,5 +1,6 @@
 import tkinter as tk
-from Black_Scholes import black_scholes 
+#from Black_Scholes import open_black_scholes
+import Black_Scholes
 
 # Main Menu Window
 root = tk.Tk()
@@ -11,10 +12,7 @@ welcome_label = tk.Label(root, text="Welcome to the Options Calculator", font=("
 welcome_label.pack(pady=20)
 
 # Button to Open Black-Scholes Window
-def run_black_scholes():
-    black_scholes()
-
-black_scholes_button = tk.Button(root, text="Black-Scholes Calculator", font=("Arial", 12), command=run_black_scholes)
+black_scholes_button = tk.Button(root, text="Black-Scholes Calculator", font=("Arial", 12), command=lambda: Black_Scholes.open_black_scholes)
 black_scholes_button.pack(pady=10)
 
-root.mainloop()  # Main event loop
+root.mainloop()
